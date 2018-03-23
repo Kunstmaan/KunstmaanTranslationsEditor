@@ -205,9 +205,9 @@ public class TranslationsActivity extends AppCompatActivity implements SearchVie
                         SparseBooleanArray sba = ((AlertDialog)dialog).getListView().getCheckedItemPositions();
                         dialog.dismiss();
                         if(sba.get(0)){
-                            ShareUtil.shareJson2(TranslationsActivity.this, true);
+                            ShareUtil.shareJson(TranslationsActivity.this, true);
                         }else{
-                            ShareUtil.shareJson2(TranslationsActivity.this, false);
+                            ShareUtil.shareJson(TranslationsActivity.this, false);
                         }
                     }
                 });
@@ -218,9 +218,9 @@ public class TranslationsActivity extends AppCompatActivity implements SearchVie
                     {
                         SparseBooleanArray sba = ((AlertDialog)dialog).getListView().getCheckedItemPositions();
                         if(sba.get(0)){
-                            ShareUtil.shareXml2(TranslationsActivity.this, true);
+                            ShareUtil.shareXml(TranslationsActivity.this, true);
                         }else{
-                            ShareUtil.shareXml2(TranslationsActivity.this, false);
+                            ShareUtil.shareXml(TranslationsActivity.this, false);
                         }
                         dialog.dismiss();
 

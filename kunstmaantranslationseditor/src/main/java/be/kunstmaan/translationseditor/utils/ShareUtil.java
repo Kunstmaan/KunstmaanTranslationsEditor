@@ -75,7 +75,7 @@ public class ShareUtil {
         return pattern;
     }
 
-    public static void shareJson2(Activity activity, Boolean includeUnchangedValues){
+    public static void shareJson(Activity activity, Boolean includeUnchangedValues){
         ArrayList<Uri> uris = new ArrayList<>();
         File myDir = new File(activity.getCacheDir(), DIR_NAME);
         myDir.mkdir();
@@ -113,7 +113,7 @@ public class ShareUtil {
         activity.startActivityForResult(Intent.createChooser(intent, "Send Email"), SHARE_REQUEST);
     }
 
-    public static void shareXml2(Activity activity, Boolean includeUnchangedValues){
+    public static void shareXml(Activity activity, Boolean includeUnchangedValues){
         ArrayList<Uri> uris = new ArrayList<>();
         File myDir = new File(activity.getCacheDir(), DIR_NAME);
         myDir.mkdir();
