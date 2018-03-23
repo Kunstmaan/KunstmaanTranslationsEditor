@@ -1,1 +1,1 @@
-include ':app', ':kunstmaantranslationseditor'
+include ':app', ':kunstmaan-translations-editor'
