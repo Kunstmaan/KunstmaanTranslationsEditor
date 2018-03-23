@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">MyApp</string>
-    <string name="first_line">A foo enters a bar</string>
-    <string name="second_line">looks around</string>
-    <string name="third_line">and says : </string>
-    <string name="show_translations_editor">Show translations editor</string>
-</resources>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">MyApp</string>
-    <string name="hello_world">Hello Wereld</string>
-    <string name="some_text">Some text</string>
-    <string name="more_text">More text</string>
-    <string name="even_more_text">Even more text</string>
-</resources>
