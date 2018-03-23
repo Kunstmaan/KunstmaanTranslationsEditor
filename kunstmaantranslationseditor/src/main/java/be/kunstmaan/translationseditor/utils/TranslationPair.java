@@ -62,24 +62,4 @@ public class TranslationPair implements Serializable {
                 ", locale=" + locale +
                 '}';
     }
-
-    public static class JsonTransfert{
-        public final String locale;
-        public final String key;
-        public final String oldValue;
-        public final String newValue;
-
-        public JsonTransfert(String locale, String key, String oldValue, String newValue) {
-            this.locale = locale;
-            this.key = key;
-            this.oldValue = oldValue;
-            this.newValue = newValue;
-        }
-
-        public JsonTransfert(TranslationPair translationPair){
-            this(translationPair.locale, translationPair.key, translationPair.oldValue, translationPair.newValue);
-        }
-
-
-    }
 }

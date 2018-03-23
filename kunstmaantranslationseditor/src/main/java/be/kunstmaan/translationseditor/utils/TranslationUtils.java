@@ -28,7 +28,6 @@ public class TranslationUtils {
         try {
             Method m = AssetManager.class.getDeclaredMethods()[70]; //loadResourceValue
             m.setAccessible(true);
-            //getResourceValue(resId, 0, outValue, true)
             TypedValue outValue = new TypedValue();
             short t = (short)0;
 
