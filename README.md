@@ -5,6 +5,10 @@
 - [x] Share the modified values (xml or json)
 - [x] Custom json and xml format
 - [x] Add patterns to be ignored in the translations window (Strings from libraries, ...)
+- [x] see the strings in 3 categories :
+    - `Current`   : Strings from the current view
+    - `In memory` : Strings present in memory
+    - `All`       : All Strings of the application
 
 
 <img src="images/gif.gif" width="30%"/>
@@ -34,7 +38,6 @@ new KunstmaanTranslationUtil.Builder(application, R.string.class.getFields())
 with `KunstmaanTranslationUtil.showTranslationsWindow();`
 
 In this example we use a button to show the Editor but we recommend the library [KunstmaanShakerMenu](https://github.com/Kunstmaan/KunstmaanShakerMenu) to show the Editor after shaking the phone.
-
 
 ## Customization
 
