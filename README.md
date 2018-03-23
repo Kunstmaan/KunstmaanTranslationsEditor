@@ -5,13 +5,13 @@
 - [x] Share the modified values (xml or json)
 - [x] Custom json and xml format
 - [x] Add patterns to be ignored in the translations window (Strings from libraries, ...)
-- [x] see the strings in 3 categories :
+- [x] See the strings in 3 categories :
     - `Current`   : Strings from the current view
     - `In memory` : Strings present in memory
     - `All`       : All Strings of the application
 
 
-<img src="images/gif.gif" width="30%"/>
+<img src="images/gif.gif" width="30%"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/mainScreen.png" width="30%"/>
 
 Example project integrating this in the Android build process can be found here
 
