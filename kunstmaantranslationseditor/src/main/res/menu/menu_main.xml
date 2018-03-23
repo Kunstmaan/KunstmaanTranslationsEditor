@@ -1,0 +1,35 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:icon="@android:drawable/ic_menu_search"
+        android:id="@+id/menu_item_search"
+        android:title="@string/kunstmaan_translations_search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="ifRoom" />
+    <group android:checkableBehavior="all">
+        <item
+            android:id="@+id/action_show_changed"
+            android:title="@string/kunstmaan_translations_show_changed"
+            android:orderInCategory="100"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/action_show_unchanged"
+            android:title="@string/kunstmaan_translations_show_unchanged"
+            android:orderInCategory="100"
+            app:showAsAction="never"/>
+    </group>
+    <item
+        android:id="@+id/action_share"
+        android:title="@string/kunstmaan_translations_share"
+        android:orderInCategory="100"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_reset"
+        android:title="@string/kunstmaan_translations_reset"
+        android:orderInCategory="100"
+        app:showAsAction="never"/>
+</menu>

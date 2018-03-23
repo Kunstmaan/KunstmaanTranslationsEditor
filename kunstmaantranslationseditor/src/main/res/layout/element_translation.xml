@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:gravity="center_vertical"
+    android:clickable="true"
+    android:focusable="true"
+    android:id="@+id/element_text_main_layout">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/key"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="sans-serif"
+        android:inputType="textMultiLine"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/edit_image_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/prefix_old_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:paddingEnd="8dp"
+        android:text="@string/kunstmaan_translations_original"
+        android:visibility="gone"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="12sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/oldValue"
+        app:layout_constraintStart_toStartOf="parent" />
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/oldValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:inputType="textMultiLine"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toEndOf="@id/barrier"
+        app:layout_constraintEnd_toStartOf="@+id/edit_image_view"
+        app:layout_constraintTop_toBottomOf="@id/key"
+        android:layout_marginEnd="8dp"
+        tools:text="This is an original value"
+        android:textSize="16sp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/prefix_new_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:paddingEnd="8dp"
+        android:text="@string/kunstmaan_translations_changed"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:layout_constraintBaseline_toBaselineOf="@+id/value_edited"
+        app:layout_constraintStart_toStartOf="parent" />
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/value_edited"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:inputType="textMultiLine"
+        android:textColor="@android:color/black"
+        tools:text="This is a changed value value"
+        app:layout_constraintStart_toEndOf="@id/barrier"
+        app:layout_constraintEnd_toStartOf="@+id/edit_image_view"
+        app:layout_constraintTop_toBottomOf="@id/oldValue"
+        android:layout_marginEnd="8dp"
+        android:visibility="gone"
+        android:textSize="16sp" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="prefix_new_value,prefix_old_value" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/edit_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>
