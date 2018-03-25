@@ -3,7 +3,6 @@ package be.kunstmaan.translationseditor.views;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.InputType;
@@ -17,8 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +44,7 @@ public class EditDialog {
         Spinner spinner = constraintLayout.findViewById(R.id.popup_spinner);
         final EditText editText = constraintLayout.findViewById(R.id.popup_edit_text);
 
-        editText.setText(pairToEdit.newValue != null?
+        editText.setText(pairToEdit.hasBeenEdited()?
                 pairToEdit.newValue :
                 pairToEdit.oldValue);
         editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE | EditorInfo.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
@@ -70,7 +67,7 @@ public class EditDialog {
 
         List<String> locales = new ArrayList<>();
         for (TranslationPair tp : mAllVersionsOfTranslationPair){
-            locales.add(tp.locale.toString());
+            locales.add(tp.locale);
         }
 
         CustomSpinnerAdapter customSpinnerAdapter = new CustomSpinnerAdapter(activity, R.layout.spinner_row, locales);

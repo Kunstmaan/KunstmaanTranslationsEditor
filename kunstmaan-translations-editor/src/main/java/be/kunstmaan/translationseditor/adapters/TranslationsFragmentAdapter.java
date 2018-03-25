@@ -5,17 +5,14 @@ import android.graphics.Typeface;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -167,32 +164,10 @@ public class TranslationsFragmentAdapter extends RecyclerView.Adapter<RecyclerVi
         void bind(TranslationPair translationPair) {
             this.mKey.setText(translationPair.key);
             this.mValue.setText(translationPair.oldValue);
-            /*
             if(translationPair.hasBeenEdited()){
-                TypedValue typedValue = new  TypedValue();
-                mActivity.getTheme().resolveAttribute(R.attr.colorAccent, typedValue, true);
-                final  int color = typedValue.data;
-                mConstraintLayout.setBackgroundColor(color);
-            }else {
-                mConstraintLayout.setBackgroundColor(mActivity.getResources().getColor(R.color.colorNonEdited));
-            }
-            */
-            if(translationPair.hasBeenEdited()){
-                /*
-                mEditedValue.setVisibility(EditText.VISIBLE);
-                mOldPrefix.setVisibility(EditText.VISIBLE);
-                mNewPrefix.setVisibility(EditText.VISIBLE);
-                mEditedValue.setText(translationPair.newValue);
-                mValue.setText(mValue.getText());
-                */
                 mValue.setText(translationPair.newValue);
                 mValue.setTypeface(null, Typeface.BOLD);
             }else{
-                /*
-                mEditedValue.setVisibility(EditText.GONE);
-                mOldPrefix.setVisibility(EditText.GONE);
-                mNewPrefix.setVisibility(EditText.GONE);
-                */
                 mValue.setText(translationPair.oldValue);
                 mValue.setTypeface(null, Typeface.NORMAL);
             }
