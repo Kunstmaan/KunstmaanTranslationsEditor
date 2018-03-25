@@ -51,7 +51,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/kunstmaan_translations_apply_changes"
-            android:background="?attr/colorPrimary"
+            android:background="?colorAccent"
+            android:textColor="@color/colorNonEdited"
             android:layout_gravity="center_horizontal"/>
 
     </FrameLayout>

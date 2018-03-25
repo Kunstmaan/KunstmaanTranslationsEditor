@@ -3,6 +3,7 @@ package be.kunstmaan.translationseditor.views;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.InputType;
@@ -16,6 +17,8 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,6 +87,9 @@ public class EditDialog {
 
             }
         });
+
+        TextView originalTextView = constraintLayout.findViewById(R.id.original_text);
+        originalTextView.setText(mCurrentPair.oldValue);
 
         builder.setView(constraintLayout)
                .setPositiveButton(R.string.kunstmaan_translations_confirm, new DialogInterface.OnClickListener() {

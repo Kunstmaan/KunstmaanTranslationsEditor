@@ -5,6 +5,24 @@
     android:layout_height="wrap_content"
     android:padding="16dp">
 
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/orignial_prefix"
+        android:paddingLeft="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kunstmaan_translations_original"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/original_text"
+        android:textSize="16sp"
+        android:paddingStart="4dp"
+        app:layout_constraintStart_toEndOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+
     <android.support.v7.widget.AppCompatSpinner
         android:id="@+id/popup_spinner"
         android:layout_width="wrap_content"
@@ -13,7 +31,7 @@
         android:paddingEnd="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/orignial_prefix">
 
     </android.support.v7.widget.AppCompatSpinner>
 
@@ -33,7 +51,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/original_text" />
 
 
 </android.support.constraint.ConstraintLayout>

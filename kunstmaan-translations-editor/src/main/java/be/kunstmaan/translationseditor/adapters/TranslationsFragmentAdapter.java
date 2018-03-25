@@ -1,6 +1,7 @@
 package be.kunstmaan.translationseditor.adapters;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
@@ -147,10 +148,7 @@ public class TranslationsFragmentAdapter extends RecyclerView.Adapter<RecyclerVi
         private final ConstraintLayout mConstraintLayout;
         private final TextView mKey;
         private final TextView mValue;
-        private final TextView mEditedValue;
         private final ImageView mEditImage;
-        private final TextView mOldPrefix;
-        private final TextView mNewPrefix;
 
         SimpleViewHolder(View view) {
             super(view);
@@ -160,38 +158,43 @@ public class TranslationsFragmentAdapter extends RecyclerView.Adapter<RecyclerVi
             mValue = view.findViewById(R.id.oldValue);
             mValue.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE | EditorInfo.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
             mValue.setOnClickListener(this);
-            mEditedValue = view.findViewById(R.id.value_edited);
-            mEditedValue.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE | EditorInfo.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
-            mEditedValue.setOnClickListener(this);
             mEditImage = view.findViewById(R.id.edit_image_view);
             mEditImage.setOnClickListener(this);
             mConstraintLayout = (ConstraintLayout) view;
             mConstraintLayout.setOnClickListener(this);
-            mOldPrefix = view.findViewById(R.id.prefix_old_value);
-            mNewPrefix = view.findViewById(R.id.prefix_new_value);
         }
 
         void bind(TranslationPair translationPair) {
             this.mKey.setText(translationPair.key);
             this.mValue.setText(translationPair.oldValue);
+            /*
             if(translationPair.hasBeenEdited()){
                 TypedValue typedValue = new  TypedValue();
-                mActivity.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
+                mActivity.getTheme().resolveAttribute(R.attr.colorAccent, typedValue, true);
                 final  int color = typedValue.data;
                 mConstraintLayout.setBackgroundColor(color);
             }else {
                 mConstraintLayout.setBackgroundColor(mActivity.getResources().getColor(R.color.colorNonEdited));
             }
+            */
             if(translationPair.hasBeenEdited()){
+                /*
                 mEditedValue.setVisibility(EditText.VISIBLE);
                 mOldPrefix.setVisibility(EditText.VISIBLE);
                 mNewPrefix.setVisibility(EditText.VISIBLE);
                 mEditedValue.setText(translationPair.newValue);
                 mValue.setText(mValue.getText());
+                */
+                mValue.setText(translationPair.newValue);
+                mValue.setTypeface(null, Typeface.BOLD);
             }else{
+                /*
                 mEditedValue.setVisibility(EditText.GONE);
                 mOldPrefix.setVisibility(EditText.GONE);
                 mNewPrefix.setVisibility(EditText.GONE);
+                */
+                mValue.setText(translationPair.oldValue);
+                mValue.setTypeface(null, Typeface.NORMAL);
             }
         }
 

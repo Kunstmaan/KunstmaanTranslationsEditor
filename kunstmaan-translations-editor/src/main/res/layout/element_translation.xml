@@ -45,39 +45,11 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:inputType="textMultiLine"
-        android:textColor="@android:color/black"
         app:layout_constraintStart_toEndOf="@id/barrier"
         app:layout_constraintEnd_toStartOf="@+id/edit_image_view"
         app:layout_constraintTop_toBottomOf="@id/key"
         android:layout_marginEnd="8dp"
         tools:text="This is an original value"
-        android:textSize="16sp" />
-
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/prefix_new_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:paddingEnd="8dp"
-        android:text="@string/kunstmaan_translations_changed"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="12sp"
-        android:visibility="gone"
-        app:layout_constraintBaseline_toBaselineOf="@+id/value_edited"
-        app:layout_constraintStart_toStartOf="parent" />
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/value_edited"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:inputType="textMultiLine"
-        android:textColor="@android:color/black"
-        tools:text="This is a changed value value"
-        app:layout_constraintStart_toEndOf="@id/barrier"
-        app:layout_constraintEnd_toStartOf="@+id/edit_image_view"
-        app:layout_constraintTop_toBottomOf="@id/oldValue"
-        android:layout_marginEnd="8dp"
-        android:visibility="gone"
         android:textSize="16sp" />
 
     <android.support.constraint.Barrier

@@ -63,6 +63,8 @@ new KunstmaanTranslationUtil.Builder(application, R.string.class.getFields())
 
 ### Add a `Pattern` to be ignored by the Editor
 
+Use a [regex] (https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) to specify which keys from strings.xml should be ignored by the Editor.
+
 ```java
     .addIgnorePattern(Pattern.compile("regexOfPatternToBeIgnored"))
 ```
