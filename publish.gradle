@@ -2,13 +2,13 @@
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'KunstmaanTranslationsEditor'
+    bintrayName = 'kunstmaan-translations-editor'
 
     publishedGroupId = 'be.kunstmaan.android'
     libraryName = 'kunstmaan-translations-editor'
     artifact = 'kunstmaan-translations-editor'
 
-    libraryDescription = 'A library to edit '
+    libraryDescription = 'A tool to live edit translations in an Android application.'
 
     siteUrl = 'https://github.com/Kunstmaan/KunstmaanShakerMenu'
     gitUrl = 'https://github.com/Kunstmaan/KunstmaanShakerMenu.git'

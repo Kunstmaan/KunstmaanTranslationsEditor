@@ -25,8 +25,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile project(path: ':kunstmaan-translations-editor')
+    implementation project(path: ':kunstmaan-translations-editor')
 }
-apply plugin: 'android-maven'
-apply plugin: 'com.jfrog.bintray'
-apply from: '../publish.gradle'
