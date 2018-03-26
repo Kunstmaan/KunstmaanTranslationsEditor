@@ -1,0 +1,22 @@
+<resources>
+    <string name="kunstmaan_translations_apply_changes">APPLY CHANGES</string>
+    <string name="kunstmaan_translations_original">original:</string>
+    <string name="kunstmaan_translations_changed">changed:</string>
+    <string name="kunstmaan_translations_search">Search</string>
+    <string name="kunstmaan_translations_show_changed">Show changed</string>
+    <string name="kunstmaan_translations_show_unchanged">Show unchanged</string>
+    <string name="kunstmaan_translations_share">Share</string>
+    <string name="kunstmaan_translations_reset">Reset</string>
+    <string name="kunstmaan_translations_current">Current</string>
+    <string name="kunstmaan_translations_in_memory">In memory</string>
+    <string name="kunstmaan_translations_all">All</string>
+    <string name="kunstmaan_translations_confirm">Confirm</string>
+    <string name="kunstmaan_translations_cancel">Cancel</string>
+    <string name="kunstmaan_translations_cancel_current_locale">Current Locale:</string>
+    <string name="kunstmaan_translations_confirmation_message">This will restart the app to apply your changes</string>
+    <string name="kunstmaan_translations_ok_message">OK</string>
+    <string name="kunstmaan_translations_include_unchanged_message">Include unchanged values</string>
+    <string name="kunstmaan_translations_share_menu_title">Share</string>
+    <string name="kunstmaan_translations_json">json</string>
+    <string name="kunstmaan_translations_xml">xml</string>
+</resources>

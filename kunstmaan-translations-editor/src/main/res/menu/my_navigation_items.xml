@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_current"
+        android:title="@string/kunstmaan_translations_current"
+        android:icon="@drawable/ic_smartphone_black_24px"/>
+    <item
+        android:id="@+id/navigation_memory"
+        android:title="@string/kunstmaan_translations_in_memory"
+        android:icon="@drawable/ic_memory_black_24px"/>
+
+    <item
+        android:id="@+id/navigation_all"
+        android:title="@string/kunstmaan_translations_all"
+        android:icon="@drawable/ic_all_inclusive_black_24px"/>
+
+</menu>

@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="be.kunstmaan.translationseditor" >
+    <application>
+        <activity android:name=".views.TranslationsActivity" />
+        <provider
+            android:name="be.kunstmaan.translationseditor.utils.TranslationsFileProvider"
+            android:authorities="be.kunstmaan.translationseditor.utils.TranslationsFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/library_translations_paths" />
+        </provider>
+    </application>
+</manifest>
