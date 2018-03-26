@@ -11,7 +11,7 @@
     - `All`       : All Strings of the application
 
 
-<img src="images/gif.gif" width="30%"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/mainScreen.png" width="30%"/>
+<img src="images/gif.gif" width="30%"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/mainscreen.png" width="30%"/>
 
 Example project integrating this in the Android build process can be found here
 
