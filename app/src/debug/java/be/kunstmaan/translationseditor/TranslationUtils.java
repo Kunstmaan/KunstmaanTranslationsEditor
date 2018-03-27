@@ -13,9 +13,9 @@ public class TranslationUtils {
 
         List<Locale> localeList = new ArrayList<>();
                 localeList.add(new Locale("nl"));
+                localeList.add(new Locale("en", "US"));
 
-        new KunstmaanTranslationUtil.Builder(application, R.string.class.getFields())
-                .addLocales(localeList)
+        new KunstmaanTranslationUtil.Builder(application, R.string.class.getFields(), localeList, new Locale("en", "US"))
                 .addCustomJsonFormat("{\n" +
                         "  \"myCustomNameForTheKey\": \"${key}\",\n" +
                         "  \"myCustomNameForTheNewValue\": \"${newValue}\",\n" +

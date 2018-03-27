@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/KunstmaanTranslationsEditor.iml" filepath="$PROJECT_DIR$/KunstmaanTranslationsEditor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KunstmaanTranslationsEditor.iml" filepath="$PROJECT_DIR$/KunstmaanTranslationsEditor.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kunstmaan-translations-editor/kunstmaan-translations-editor.iml" filepath="$PROJECT_DIR$/kunstmaan-translations-editor/kunstmaan-translations-editor.iml" />
       <module fileurl="file://$PROJECT_DIR$/kunstmaan-translations-editor/kunstmaantranslationseditor.iml" filepath="$PROJECT_DIR$/kunstmaan-translations-editor/kunstmaantranslationseditor.iml" />
     </modules>
   </component>

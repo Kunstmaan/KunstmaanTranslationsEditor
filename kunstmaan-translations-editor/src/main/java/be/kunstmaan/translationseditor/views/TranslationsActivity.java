@@ -2,10 +2,7 @@ package be.kunstmaan.translationseditor.views;
 
 import android.app.SearchManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -14,14 +11,14 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
-import android.util.Log;
-import android.util.SparseBooleanArray;
 import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.SearchView;
 
 import be.kunstmaan.translationseditor.KunstmaanTranslationUtil;
@@ -58,6 +55,7 @@ public class TranslationsActivity extends AppCompatActivity implements SearchVie
             mToolbar.setVisibility(Toolbar.GONE);
         }
 
+        setTheme(R.style.MyAppActionBarTheme);
 
         getSupportActionBar().setTitle(getString(R.string.kunstmaan_translations_cancel_current_locale)+ " " + getResources().getConfiguration().locale.toString());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -100,21 +98,30 @@ public class TranslationsActivity extends AppCompatActivity implements SearchVie
         mApplyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 AlertDialog.Builder builder = new AlertDialog.Builder(TranslationsActivity.this);
-                builder.setTitle(R.string.kunstmaan_translations_confirmation_message);
-                builder.setPositiveButton(R.string.kunstmaan_translations_ok_message, new DialogInterface.OnClickListener() {
+                LayoutInflater inflater = getLayoutInflater();
+                View constraintLayout = inflater.inflate(R.layout.apply_confirmation_layout, null);
+                builder.setView(constraintLayout);
+                final AlertDialog dialog = builder.create();
+
+                Button okButton = constraintLayout.findViewById(R.id.ok_button);
+                okButton.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int id) {
+                    public void onClick(View view) {
                         dialog.cancel();
                         KunstmaanTranslationUtil.applyChanges();
                     }
-                })
-                        .setNegativeButton(R.string.kunstmaan_translations_cancel, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        });
-                AlertDialog dialog = builder.create();
+                });
+
+                Button cancelButton = constraintLayout.findViewById(R.id.cancel_button);
+                cancelButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.cancel();
+                    }
+                });
+
                 dialog.show();
             }
         });
@@ -200,45 +207,40 @@ public class TranslationsActivity extends AppCompatActivity implements SearchVie
     }
 
     private void showShareMenu() {
-        final CharSequence[] items = {getString(R.string.kunstmaan_translations_include_unchanged_message)};
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.kunstmaan_translations_share_menu_title);
-        builder.setMultiChoiceItems(items, null, null)
-                .setNegativeButton(R.string.kunstmaan_translations_json, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        SparseBooleanArray sba = ((AlertDialog)dialog).getListView().getCheckedItemPositions();
-                        dialog.dismiss();
-                        if(sba.get(0)){
-                            ShareUtil.shareJson(TranslationsActivity.this, true);
-                        }else{
-                            ShareUtil.shareJson(TranslationsActivity.this, false);
-                        }
-                    }
-                });
-        builder.setPositiveButton(R.string.kunstmaan_translations_xml,
-                new DialogInterface.OnClickListener()
-                {
-                    public void onClick(DialogInterface dialog, int id)
-                    {
-                        SparseBooleanArray sba = ((AlertDialog)dialog).getListView().getCheckedItemPositions();
-                        if(sba.get(0)){
-                            ShareUtil.shareXml(TranslationsActivity.this, true);
-                        }else{
-                            ShareUtil.shareXml(TranslationsActivity.this, false);
-                        }
-                        dialog.dismiss();
 
-                    }
-                });
-        builder.setNeutralButton(R.string.kunstmaan_translations_cancel,
-                new DialogInterface.OnClickListener()
-                {
-                    public void onClick(DialogInterface dialog, int id)
-                    {                        dialog.dismiss();
+        AlertDialog.Builder builder = new AlertDialog.Builder(TranslationsActivity.this);
+        LayoutInflater inflater = getLayoutInflater();
+        View constraintLayout = inflater.inflate(R.layout.share_popup, null);
+        builder.setView(constraintLayout);
+        final AlertDialog mAlertDialog = builder.create();
 
-                    }
-                });
-        builder.create().show();
+        final CheckBox checkBox = constraintLayout.findViewById(R.id.checkBox);
+
+
+        Button cancelButton = constraintLayout.findViewById(R.id.cancel_button);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAlertDialog.dismiss();
+            }
+        });
+
+        Button jsonButton = constraintLayout.findViewById(R.id.json_button);
+        jsonButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ShareUtil.shareJson(TranslationsActivity.this, checkBox.isChecked());
+            }
+        });
+
+        Button xmlButton = constraintLayout.findViewById(R.id.xml_button);
+        xmlButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ShareUtil.shareXml(TranslationsActivity.this, checkBox.isChecked());
+            }
+        });
+        mAlertDialog.show();
     }
 
     @Override

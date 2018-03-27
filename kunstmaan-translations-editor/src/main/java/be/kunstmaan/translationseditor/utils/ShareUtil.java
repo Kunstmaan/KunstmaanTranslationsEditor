@@ -81,7 +81,7 @@ public class ShareUtil {
         myDir.mkdir();
         for(Locale l : KunstmaanTranslationUtil.sLocalesToConsider){
             try {
-                String fileName = l.equals(Locale.getDefault()) ? BuildConfig.APPLICATION_ID : l + "_" + BuildConfig.APPLICATION_ID;
+                String fileName = l.equals(KunstmaanTranslationUtil.sDefaultLocale) ? BuildConfig.APPLICATION_ID : l + "_" + BuildConfig.APPLICATION_ID;
                 File tempFile = File.createTempFile(fileName , ".json", myDir);
                 FileWriter fw = new FileWriter(tempFile);
 

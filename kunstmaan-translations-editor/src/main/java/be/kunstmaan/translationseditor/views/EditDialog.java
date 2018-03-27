@@ -3,6 +3,8 @@ package be.kunstmaan.translationseditor.views;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.InputType;
@@ -13,10 +15,12 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,12 +39,37 @@ public class EditDialog {
         mAllVersionsOfTranslationPair = KunstmaanTranslationUtil.getTranslationsFor(pairToEdit);
         mCurrentPair = pairToEdit;
 
-
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+
         LayoutInflater inflater = activity.getLayoutInflater();
-        builder.setTitle(pairToEdit.key);
 
         View constraintLayout = inflater.inflate(R.layout.edit_popup_layout, null);
+
+        TextView title = constraintLayout.findViewById(R.id.title_text_view);
+        title.setText(pairToEdit.key);
+
+
+        Button okButton = constraintLayout.findViewById(R.id.ok_button);
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (TranslationPair tp : mAllVersionsOfTranslationPair){
+                    if(tp.hasBeenEdited() || tp.oldValue.equals(tp.newValue)){
+                        KunstmaanTranslationUtil.storeInSharedPreferences(tp);
+                    }
+                }
+                watcher.onResult(mAllVersionsOfTranslationPair.get(0));
+                mAlertDialog.dismiss();
+            }
+        });
+
+        Button cancelButton = constraintLayout.findViewById(R.id.cancel_button);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAlertDialog.cancel();
+            }
+        });
         Spinner spinner = constraintLayout.findViewById(R.id.popup_spinner);
         final EditText editText = constraintLayout.findViewById(R.id.popup_edit_text);
 
@@ -88,25 +117,9 @@ public class EditDialog {
         TextView originalTextView = constraintLayout.findViewById(R.id.original_text);
         originalTextView.setText(mCurrentPair.oldValue);
 
-        builder.setView(constraintLayout)
-               .setPositiveButton(R.string.kunstmaan_translations_confirm, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int id) {
-                        for (TranslationPair tp : mAllVersionsOfTranslationPair){
-                            if(tp.hasBeenEdited() || tp.oldValue.equals(tp.newValue)){
-                                KunstmaanTranslationUtil.storeInSharedPreferences(tp);
-                            }
-                        }
-                        watcher.onResult(mAllVersionsOfTranslationPair.get(0));
-
-                    }
-                })
-               .setNegativeButton(R.string.kunstmaan_translations_cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                   }
-                });
+        builder.setView(constraintLayout);
         mAlertDialog = builder.create();
+        mAlertDialog.getWindow().setBackgroundDrawableResource(android.R.color.background_light);
     }
 
     public void show(){
@@ -136,4 +149,7 @@ public class EditDialog {
             return view;
         }
     }
+
+
 }
+

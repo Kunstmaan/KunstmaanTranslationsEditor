@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:paddingLeft="8dp"
-        android:paddingRight="8dp"/>
+        android:paddingRight="8dp"
+        android:textColor="@color/kunstmaanTranslationsEditorColorTextSecondary"/>
     <ImageView
         app:layout_constraintStart_toEndOf="@id/spinner_item_text"
         app:layout_constraintTop_toTopOf="parent"
