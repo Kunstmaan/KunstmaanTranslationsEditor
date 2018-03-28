@@ -20,7 +20,7 @@ Example project integrating this in the Android build process can be found here
 in the `build.gradle` of your app, put:
 
 ```groovy
-implementation 'be.kunstmaan.android:kunstmaan-translations-editor:1.0.0'
+implementation 'be.kunstmaan.android:kunstmaan-translations-editor:1.0.1'
 // implementationDebug if needed only for debugging purposes
 ```
 
@@ -29,9 +29,17 @@ implementation 'be.kunstmaan.android:kunstmaan-translations-editor:1.0.0'
 ### 1. Build the Kunstmaan Translations Editor
 
 ```java
-new KunstmaanTranslationUtil.Builder(application, R.string.class.getFields())
+// locales to be considered by the Translations Editor
+List<Locale> localeList = new ArrayList<>();
+                localeList.add(new Locale("nl"));
+                localeList.add(new Locale("en", "US"));
+                
+new KunstmaanTranslationUtil.Builder(application, R.string.class.getFields(), locales, new Locale("en", "US"))
                             .build();
 ```
+
+The builder needs the application context, the fields from the string class, the locales to be used in the Editor and the 
+application's default locale
 
 ### 2. Show the Editor 
 
@@ -40,25 +48,6 @@ with `KunstmaanTranslationUtil.showTranslationsWindow();`
 In this example we use a button to show the Editor but we recommend the library [KunstmaanShakerMenu](https://github.com/Kunstmaan/KunstmaanShakerMenu) to show the Editor after shaking the phone.
 
 ## Customization
-
-
-### Add additional Locales files to be considered by the Editor
-
-The default file is considered automatically.
-
-- use the same prefix as your additionnal xml file : `new Locale("nl")`
-
-```java
-List<Locale> localeList = new ArrayList<>();
-localeList.add(new Locale("nl"));
-localeList.add(new Locale("de"));
-
-
-new KunstmaanTranslationUtil.Builder(application, R.string.class.getFields())
-			.addLocales(localeList)
-			.build();
-
-```
 
 
 ### Add a `Pattern` to be ignored by the Editor

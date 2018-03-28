@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/kunstmaanTranslationsEditorColorAccent</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">@color/kunstmaanTranslationsEditorColorTextPrimary</item>
+        <!-- Used for the background -->
+        <item name="android:background">@color/kunstmaanTranslationsEditorColorNonEdited</item>
+    </style>
+
+    <style name="EditTextDefault" parent="android:Widget.EditText">
+        <item name="android:background">@color/kunstmaanTranslationsEditorColorNonEdited</item>
+        <item name="android:textColor">@color/kunstmaanTranslationsEditorColorTextPrimary</item>
+        <item name="colorControlNormal">@color/kunstmaanTranslationsEditorColorAccent</item>
+        <item name="colorControlActivated">@color/kunstmaanTranslationsEditorColorAccent</item>
+    </style>
+
+    <style name="ThemeOverlay.MyTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@color/kunstmaanTranslationsEditorColorNonEdited</item>
+        <item name="android:textColor">@color/kunstmaanTranslationsEditorColorTextPrimary</item>
+        <item name="colorAccent">@color/kunstmaanTranslationsEditorColorAccent</item>
+    </style>
+</resources>

@@ -11,17 +11,22 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
+        app:popupTheme="@style/ThemeOverlay.MyTheme"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp" />
+        android:background="@color/kunstmaanTranslationsEditorColorPrimary"
+        android:elevation="4dp"
+        />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:menu="@menu/my_navigation_items"
-        android:theme="@style/ThemeOverlay.AppCompat.Light" />
+        android:background="@color/kunstmaanTranslationsEditorColorNonEdited"
+        app:itemIconTint="@drawable/navbar_color"
+        app:itemTextColor="@drawable/navbar_color"
+        />
 
     <View
         android:id="@+id/separator1"
@@ -51,8 +56,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/kunstmaan_translations_apply_changes"
-            android:background="?colorAccent"
-            android:textColor="@color/colorNonEdited"
+            android:background="@color/kunstmaanTranslationsEditorColorAccent"
+            android:textColor="@color/kunstmaanTranslationsEditorColorNonEdited"
             android:layout_gravity="center_horizontal"/>
 
     </FrameLayout>

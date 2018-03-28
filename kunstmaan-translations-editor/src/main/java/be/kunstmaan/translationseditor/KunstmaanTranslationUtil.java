@@ -32,6 +32,7 @@ import be.kunstmaan.translationseditor.views.TranslationsActivity;
 public class KunstmaanTranslationUtil {
 
     public static List<Locale> sLocalesToConsider;
+    public static Locale sDefaultLocale;
     private static final String STORED_VALUES = KunstmaanTranslationUtil.class.getName() + ".stored.values";
     private static final String SHARED_PREFS = KunstmaanTranslationUtil.class.getName() + ".shared.prefs";
     private static ArrayList<TranslationPair> sValuesFromCurrentScreen;
@@ -64,13 +65,13 @@ public class KunstmaanTranslationUtil {
         return mergeValuesWithSharedPreferences(textsFoundInMemory);
     }
 
-     public static ArrayList<TranslationPair> getValuesFromCurrentScreen(){
+    public static ArrayList<TranslationPair> getValuesFromCurrentScreen(){
         ArrayList<TranslationPair> copy = deepCopyValues(sValuesFromCurrentScreen);
         return mergeValuesWithSharedPreferences(copy);
 
     }
 
-     public static ArrayList<TranslationPair> getAllValues(){
+    public static ArrayList<TranslationPair> getAllValues(){
         ArrayList<TranslationPair> allTextsFound = new ArrayList<>();
         TranslationUtils translationUtils = new TranslationUtils(sActivity.get().getApplication().getResources());
         String currentResourcesFileName = sActivity.get().getResources().getConfiguration().locale.toString();
@@ -97,7 +98,7 @@ public class KunstmaanTranslationUtil {
         return gson.fromJson(storedValues, new TypeToken<ArrayList<TranslationPair>>(){}.getType());
     }
 
-     public static ArrayList<TranslationPair> getTranslationsFor(TranslationPair translationPair) {
+    public static ArrayList<TranslationPair> getTranslationsFor(TranslationPair translationPair) {
         ArrayList<TranslationPair> translationPairs = new ArrayList<>();
         translationPairs.add(translationPair);
         for(Locale l : sLocalesToConsider){
@@ -112,10 +113,10 @@ public class KunstmaanTranslationUtil {
         return mergeValuesWithSharedPreferences(translationPairs);
     }
 
-     public static void clearData() {
+    public static void clearData() {
         SharedPreferences sharedPref = sActivity.get().getApplicationContext().getSharedPreferences(KunstmaanTranslationUtil.SHARED_PREFS, Context.MODE_PRIVATE);
-         TranslationUtils translationUtils = new TranslationUtils(sActivity.get().getResources());
-         for(Locale l : sLocalesToConsider) {
+        TranslationUtils translationUtils = new TranslationUtils(sActivity.get().getResources());
+        for(Locale l : sLocalesToConsider) {
             String storedValues = sharedPref.getString(STORED_VALUES + l.toString(), null);
             if (storedValues != null) {
                 Gson gson = new Gson();
@@ -183,6 +184,7 @@ public class KunstmaanTranslationUtil {
             }else{
             }
         }
+
         return mergedValues;
 
     }
@@ -274,24 +276,21 @@ public class KunstmaanTranslationUtil {
         private final Application mApplication;
         private Field[] mStringFields;
         private List<Locale> mLocalesToConsider;
+        private Locale mDefaultLocale;
         private String mCustomJsonFormat = null;
         private String mCustomXmlFormat = null;
         private String mCustomXmlRootTag = null;
 
 
 
-        public Builder(Application application, Field[] stringFields){
-            mLocalesToConsider = new ArrayList<>();
-            mLocalesToConsider.add(Locale.getDefault());
+        public Builder(Application application, Field[] stringFields, List<Locale> localesToConsider, Locale defaultLocale){
+            this.mLocalesToConsider = new ArrayList<>(localesToConsider);
+            this.mDefaultLocale = defaultLocale;
             this.mApplication = application;
             this.mStringFields = stringFields;
             addIgnorePattern(Pattern.compile("^kunstmaan_translations_.*$"));
         }
 
-        public Builder addLocales(List<Locale> localesToConsider){
-            this.mLocalesToConsider.addAll(localesToConsider);
-            return this;
-        }
 
         public Builder addIgnorePattern(Pattern patternToBeIngored){
             Field[] result = new Field[0];
@@ -317,6 +316,7 @@ public class KunstmaanTranslationUtil {
 
         public void build(){
             KunstmaanTranslationUtil.sLocalesToConsider = mLocalesToConsider;
+            KunstmaanTranslationUtil.sDefaultLocale = mDefaultLocale;
             KunstmaanTranslationUtil.sStringFields = removeFieldsByName(this.mStringFields, android.support.v7.appcompat.R.string.class.getFields());
             setupActivityGrabber(mApplication);
 

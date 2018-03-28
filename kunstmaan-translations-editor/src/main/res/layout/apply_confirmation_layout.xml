@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.AppCompatTextView
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/kunstmaanTranslationsEditorColorTextPrimary"
+        android:textSize="18sp"
+        android:text="@string/kunstmaan_translations_confirmation_message"
+        app:layout_constraintBottom_toTopOf="@id/cancel_button"
+        android:paddingBottom="32dp"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/cancel_button"
+        android:text="@string/kunstmaan_translations_cancel"
+        android:background="@color/kunstmaanTranslationsEditorColorNonEdited"
+        android:textColor="@color/kunstmaanTranslationsEditorColorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ok_button"
+        />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/ok_button"
+        android:text="@string/kunstmaan_translations_ok_message"
+        android:background="@color/kunstmaanTranslationsEditorColorNonEdited"
+        android:textColor="@color/kunstmaanTranslationsEditorColorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/share_popup_main"
+    android:padding="16dp"
+    android:background="@color/kunstmaanTranslationsEditorColorNonEdited">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/title_share_popup"
+        android:text="@string/kunstmaan_translations_share"
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/kunstmaanTranslationsEditorColorTextPrimary"
+        android:paddingBottom="16dp"/>
+
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:button="@drawable/abc_btn_check_material"
+        android:buttonTint="@color/kunstmaanTranslationsEditorColorTextSecondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kunstmaan_translations_include_unchanged_message"
+        app:layout_constraintTop_toBottomOf="@id/title_share_popup"
+        android:textColor="@color/kunstmaanTranslationsEditorColorTextPrimary" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/cancel_button"
+        style="?android:attr/borderlessButtonStyle"
+
+        android:text="@string/kunstmaan_translations_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/checkBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/kunstmaanTranslationsEditorColorAccent"
+        android:background="@color/kunstmaanTranslationsEditorColorNonEdited"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/json_button"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="@string/kunstmaan_translations_json"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/checkBox"
+        app:layout_constraintEnd_toStartOf="@id/xml_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/kunstmaanTranslationsEditorColorAccent"
+        android:background="@color/kunstmaanTranslationsEditorColorNonEdited"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/xml_button"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="@string/kunstmaan_translations_xml"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/checkBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/kunstmaanTranslationsEditorColorAccent"
+        android:background="@color/kunstmaanTranslationsEditorColorNonEdited"/>
+</android.support.constraint.ConstraintLayout>
