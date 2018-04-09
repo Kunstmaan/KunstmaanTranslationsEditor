@@ -45,14 +45,13 @@ public class TranslationUtils {
         try {
             Method m = AssetManager.class.getDeclaredMethod("loadResourceValue", int.class, short.class, TypedValue.class, boolean.class); //loadResourceValue //TODO: change to byName
             m.setAccessible(true);
-            //loadResourceValue(resId, 0, outValue, true)
             TypedValue outValue = new TypedValue();
             short t = (short) 0;
             Object block = m.invoke(resources.getAssets(), resId, t, outValue, true);
-            Field f = FieldUtils.getField(AssetManager.class, "mStringBlocks", true); //TODO: change to byName
+            Field f = FieldUtils.getField(AssetManager.class, "mStringBlocks", true);
             f.setAccessible(true);
             Object[] mStringBlocks = (Object[]) f.get(resources.getAssets());
-            Field f2 = FieldUtils.getField(mStringBlocks[0].getClass(), "mSparseStrings", true); //TODO: change to byName
+            Field f2 = FieldUtils.getField(mStringBlocks[0].getClass(), "mSparseStrings", true);
             f2.setAccessible(true);
             SparseArray sa = (SparseArray) f2.get(mStringBlocks[(int) block]);
             outValue.string = (CharSequence) sa.get(outValue.data);
